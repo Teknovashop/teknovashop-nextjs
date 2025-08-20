@@ -1,12 +1,9 @@
-import { NextResponse } from 'next/server';
-
-export async function GET(request: Request) {
+export async function GET(request) {
   const { searchParams } = new URL(request.url);
-  const token = searchParams.get('token');
+  const token = searchParams.get("token");
   if (token !== process.env.REFRESH_TOKEN) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401 });
   }
-
-  // Aquí iría la lógica para revalidar caché o regenerar contenido
-  return NextResponse.json({ revalidated: true, now: Date.now() });
+  // Aquí revalidarías caché/tags si usas ISR. Por ahora solo respondemos OK.
+  return new Response(JSON.stringify({ revalidated: true, now: Date.now() }), { status: 200 });
 }
