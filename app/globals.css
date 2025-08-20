@@ -1,5 +1,5 @@
 :root { --brand: #7c3aed; }
 * { box-sizing: border-box; }
-body { margin: 0; background:#f8f8fb; color:#111; }
-a { color: var(--brand); text-decoration: none; }
-a:hover { text-decoration: underline; }
+body { margin:0; background:#f8f8fb; color:#111; }
+a { color: var(--brand); text-decoration:none; }
+a:hover { text-decoration:underline; }
